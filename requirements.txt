@@ -1,0 +1,5 @@
+pandas~=3.0.1
+mysql-connector-python~=9.6.0
+python-dotenv~=1.2.2
+numpy~=2.4.4
+statsmodels~=0.14.6
