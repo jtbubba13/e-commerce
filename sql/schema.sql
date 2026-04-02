@@ -6,7 +6,7 @@ Use ecommerce;
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
     signup_date DATE,
-    country VARCHAR(10),
+    state VARCHAR(10),
     device_type VARCHAR(20),
     acquisition_channel VARCHAR(50)
 );
@@ -25,7 +25,10 @@ CREATE TABLE sessions (
 -- PRODUCTS
 CREATE TABLE products (
     product_id INT PRIMARY KEY,
-    category VARCHAR(50),
+    product_type VARCHAR(50),
+    caliber VARCHAR(20),
+    manufacturer VARCHAR(50),
+    requires_ffl BOOLEAN,
     price DECIMAL(10,2),
     cost DECIMAL(10,2)
 );
@@ -49,6 +52,8 @@ CREATE TABLE orders (
     user_id INT,
     session_id INT,
     order_timestamp DATETIME,
+    order_status VARCHAR(50),
+    shipped_to_ffl BOOLEAN,
     revenue DECIMAL(10,2),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (session_id) REFERENCES sessions(session_id)
